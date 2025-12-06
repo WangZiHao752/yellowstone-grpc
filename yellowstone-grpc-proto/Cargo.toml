@@ -52,7 +52,7 @@ solana-transaction = { workspace = true, features = ["blake3"] }
 
 [build-dependencies]
 anyhow = { workspace = true }
-protobuf-src = { workspace = true }
+
 tonic-build = { workspace = true }
 
 [features]
