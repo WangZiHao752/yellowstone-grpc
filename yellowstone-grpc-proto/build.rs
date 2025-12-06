@@ -4,7 +4,10 @@ use {
 };
 
 fn main() -> anyhow::Result<()> {
-    std::env::set_var("PROTOC", protobuf_src::protoc());
+    #[cfg(not(windows))]
+    if std::env::var("PROTOC").is_err() {
+        std::env::set_var("PROTOC", protobuf_src::protoc());
+    }
 
     // build protos
     tonic_build::configure().compile_protos(&["proto/geyser.proto"], &["proto"])?;
