@@ -4,7 +4,7 @@ use {
 };
 
 fn main() -> anyhow::Result<()> {
-    // #[cfg(not(windows))]
+    #[cfg(not(windows))]
     if std::env::var("PROTOC").is_err() {
         std::env::set_var("PROTOC", protobuf_src::protoc());
     }

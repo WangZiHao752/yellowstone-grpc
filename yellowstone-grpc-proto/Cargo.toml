@@ -52,7 +52,8 @@ solana-transaction = { workspace = true, features = ["blake3"] }
 
 [build-dependencies]
 anyhow = { workspace = true }
-
+[target.'cfg(not(windows))'.build-dependencies]
+protobuf-src = "1"
 tonic-build = { workspace = true }
 
 [features]
